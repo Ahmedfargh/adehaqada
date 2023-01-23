@@ -1,0 +1,120 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+	<title>أديها قعدة</title>
+    <link rel="icon" href='{% static "images/fav.png" %}' type="image/png" sizes="16x16"> 
+    
+    <link rel="stylesheet" href='{% static "css/main.min.css"%}'>
+    <link rel="stylesheet" href='{% static "css/style.css"%}'>
+    <link rel="stylesheet" href='{% static "css/color.css"%}'>    
+	<link rel="stylesheet" href='{% static "css/responsive.css"%}'>
+
+</head>
+<body>
+<!--<div class="se-pre-con"></div>-->
+<div class="theme-layout">
+	<div class="container-fluid pdng0">
+		<div class="row merged">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="land-featurearea">
+					<div class="land-meta">
+						<h1>أديها قعدة</h1>
+						<p>
+							أديها قعدة يرايق كلم صحابك و أعرف أخبارهم
+						</p>
+						<div class="friend-logo">
+							<span><img src="{% static 'images/wink.png'%}" alt=""></span>
+						</div>
+						<a href="#" title="" class="folow-me">تابعنا</a>
+					</div>	
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="login-reg-bg">
+					<div class="log-reg-area sign">
+						<h2 class="log-title">الدخول</h2>
+						<form method="post">
+							<div class="form-group">	
+							  <input type="text" id="input" required="required"/>
+							  <label class="control-label" for="input">البريد الألكترونى</label><i class="mtrl-select"></i>
+							</div>
+							<div class="form-group">	
+							  <input type="password" required="required"/>
+							  <label class="control-label" for="input">كلمة السر</label><i class="mtrl-select"></i>
+							</div>
+							<div class="checkbox">
+							  <label>
+								<input type="checkbox" checked="checked"/><i class="check-box"></i>تذكرنى
+							  </label>
+							</div>
+							<a href="#" title="" class="forgot-pwd">نسيت الحساب</a>
+							<div class="submit-btns">
+								<button class="mtr-btn signin" type="button"><span>دخول</span></button>
+								<button class="mtr-btn signup" type="button"><span>تسجيل</span></button>
+							</div>
+						</form>
+					</div>
+					<div class="log-reg-area reg">
+						<h2 class="log-title">تسجيل</h2>
+						<form method="post">
+							<div class="form-group">	
+							  <input type="text"name='first_name' required="required"/>
+							  <label class="control-label" for="input">الأسم الأول</label><i class="mtrl-select"></i>
+							</div>
+							<div class="form-group">	
+							  <input type="text"name='famile_name' required="required"/>
+							  <label class="control-label" for="input">أسم العائلة</label><i class="mtrl-select"></i>
+							</div>
+							<div class="form-group">	
+							  <input type="password"name='password' required="required"/>
+							  <label class="control-label" for="input">كلمة السر</label><i class="mtrl-select"></i>
+							</div>
+							<div class="form-group">	
+								<input type="password"name='confirm_passwords' required="required"/>
+								<label class="control-label" for="input">كلمة السر تأكيد كلمة السر</label><i class="mtrl-select"></i>
+							  </div>
+							<div class="form-radio">
+							  <select name='gender'class='form-control'>
+								<option value="M">
+									ذكر
+								</option>
+								<option value="F">
+									أنثى
+								</option>
+								<option value="X">
+									لا أريد التحديد
+								</option>
+							  </select>
+							</div>
+							<div class="form-group">	
+							  <input type="email" required="required"/>
+							  <label class="control-label" for="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c29010d05002c">[البريد الألكترونى&#160;محمى]</a></label><i class="mtrl-select"></i>
+							</div>
+							<div class="checkbox">
+							  <label>
+								<input type="checkbox" checked="checked"/><i class="check-box"></i>Accept Terms & Conditions ?
+							  </label>
+							</div>
+							<a href="#" title="" class="already-have">Already have an account</a>
+							<div class="submit-btns">
+								<button class="mtr-btn signup" type="button"><span>Register</span></button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static 'js/main.min.js'%}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>

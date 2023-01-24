@@ -19,5 +19,6 @@ from socialsite import sociallinks as soc_link
 from social import views as soc_views
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("social/login",soc_views.login.get_to_login,name="login")
+    path("social/login",soc_views.login.get_to_login,name="login"),
+    path("social/rigster",soc_views.login.register,name='register')
 ]

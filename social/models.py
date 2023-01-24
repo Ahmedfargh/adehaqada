@@ -3,18 +3,15 @@ from datetime import datetime
 # Create your models here.
 class allowed_countrys(models.Model):
     country_name=models.TextField(max_length=25)
-    country_id=models.BigIntegerField()
 class cities(models.Model):
     city_name=models.CharField(max_length=40)
-    city_id=models.BigIntegerField()
     country_id=models.ForeignKey(allowed_countrys,on_delete=models.CASCADE)
 class user(models.Model):#this model is to access users data
     user_name=models.CharField(max_length=45)
     user_email=models.EmailField(max_length=31,null=True)
     user_phone=models.CharField(max_length=30)
-    user_id=models.BigIntegerField()
     user_profile_img=models.FileField(default="/media/img/users/find_user.png")
-    user_country=models.ForeignKey(cities,on_delete=models.CASCADE)
+    user_country=models.CharField(max_length=40)
 class media(models.Model):#any media video,images
     media_link=models.CharField(max_length=100)
     owned_by=models.ForeignKey(user,on_delete=models.CASCADE)

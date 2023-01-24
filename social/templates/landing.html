@@ -1,4 +1,7 @@
 {%load static %}
+{% for value in countries %}
+	
+{%endfor%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +41,9 @@
 				<div class="login-reg-bg">
 					<div class="log-reg-area sign">
 						<h2 class="log-title">الدخول</h2>
+						<h3 class='log-title'>
+							{% if result %}{{result}}{% endif %}
+						</h2>
 						<form method="post">
 							<div class="form-group">	
 							  <input type="text" id="input" required="required"/>
@@ -61,7 +67,8 @@
 					</div>
 					<div class="log-reg-area reg">
 						<h2 class="log-title">تسجيل</h2>
-						<form method="post">
+						<form method="post"action="{% url 'register' %}">
+							{% csrf_token %}
 							<div class="form-group">	
 							  <input type="text"name='first_name' required="required"/>
 							  <label class="control-label" for="input">الأسم الأول</label><i class="mtrl-select"></i>
@@ -77,8 +84,13 @@
 							<div class="form-group">	
 								<input type="password"name='confirm_passwords' required="required"/>
 								<label class="control-label" for="input">كلمة السر تأكيد كلمة السر</label><i class="mtrl-select"></i>
-							  </div>
+							</div>
+							<div class="form-group">	
+								<input type="phone"name='phone' required="required"/>
+								<label class="control-label" for="input">الهاتف</label><i class="mtrl-select"></i>
+							</div>
 							<div class="form-radio">
+								<label class="control-label" for="input">النوع</label>
 							  <select name='gender'class='form-control'>
 								<option value="M">
 									ذكر
@@ -90,20 +102,23 @@
 									لا أريد التحديد
 								</option>
 							  </select>
-							</div>
+								
 							<div class="form-group">	
-							  <input type="email" required="required"/>
-							  <label class="control-label" for="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c29010d05002c">[البريد الألكترونى&#160;محمى]</a></label><i class="mtrl-select"></i>
+							  <input type="email"name="email" required="required"/>
+							  <label class="control-label" for="input">[البريد الألكترونى&#160;محمى]</a></label><i class="mtrl-select"></i>
 							</div>
-							<div class="checkbox">
-							  <label>
-								<input type="checkbox" checked="checked"/><i class="check-box"></i>Accept Terms & Conditions ?
-							  </label>
+							
+							<div class="form-group">
+								<select name='city'>
+									{% for value in countries %}
+										<option values="{{value.city.id}}">{{value.city.name}}-{{value.country}}</option>
+									{% endfor %}
+								</select>
 							</div>
-							<a href="#" title="" class="already-have">Already have an account</a>
-							<div class="submit-btns">
-								<button class="mtr-btn signup" type="button"><span>Register</span></button>
+							<div class='form-group'>
+								<button type='submit'class='btn btn-sucess'name='register'>تسجيل</button>
 							</div>
+
 						</form>
 					</div>
 				</div>
@@ -112,7 +127,7 @@
 	</div>
 </div>
 	
-	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static 'js/main.min.js'%}"></script>
+<script src="{% static 'js/main.min.js'%}"></script>
 	<script src="{% static 'js/script.js' %}"></script>
 
 </body>

@@ -12,6 +12,16 @@ class user(models.Model):#this model is to access users data
     user_phone=models.CharField(max_length=30)
     user_profile_img=models.FileField(default="/media/img/users/find_user.png")
     user_country=models.CharField(max_length=40)
+    user_password=models.CharField(max_length=120,null=True)
+    def convert_to_dict(self):
+        return {
+            "user_name":self.user_name,
+            "user_email":self.user_email,
+            "user_phone":self.user_phone,
+            "user_country":self.user_country,
+            "user_password":self.user_password,
+            "user_profile_img":self.user_profile_img
+        }
 class media(models.Model):#any media video,images
     media_link=models.CharField(max_length=100)
     owned_by=models.ForeignKey(user,on_delete=models.CASCADE)

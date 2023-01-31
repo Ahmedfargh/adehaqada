@@ -17,8 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from socialsite import sociallinks as soc_link
 from social import views as soc_views
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("social/login",soc_views.login.get_to_login,name="login"),
-    path("social/rigster",soc_views.login.register,name='register')
+    path("social/rigster",soc_views.login.register,name='register'),
+    path("social/user/account",soc_views.login.login_op,name="account")
 ]
+urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_URL)
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

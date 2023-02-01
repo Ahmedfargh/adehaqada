@@ -13,6 +13,7 @@ class user(models.Model):#this model is to access users data
     user_profile_img=models.FileField(default="/media/img/users/find_user.png")
     user_country=models.CharField(max_length=40)
     user_password=models.CharField(max_length=120,null=True)
+    user_online=models.BooleanField(default=False)
     def convert_to_dict(self):
         return {
             "user_name":self.user_name,

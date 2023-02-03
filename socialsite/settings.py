@@ -56,7 +56,7 @@ ROOT_URLCONF = "socialsite.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["social/templates","personality/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -126,10 +126,14 @@ STATIC_ROOT="/static/"
 staticfile="/static/"
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 MEDIA_URL="/media/"
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIR = os.path.join(BASE_DIR, "static")
+STATIC_DIR=os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = [STATIC_DIR]
+
 STATICFILES_FINDERS = [
  'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]

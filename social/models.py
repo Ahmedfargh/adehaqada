@@ -14,6 +14,7 @@ class user(models.Model):#this model is to access users data
     user_country=models.CharField(max_length=40)
     user_password=models.CharField(max_length=120,null=True)
     user_online=models.BooleanField(default=False)
+    user_background=models.ImageField(upload_to="img/users/",default="img/users/assassins_creed-wallpaper-1920x1200.jpg")
     def convert_to_dict(self):
         return {
             "user_name":self.user_name,

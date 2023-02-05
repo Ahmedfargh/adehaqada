@@ -78,7 +78,7 @@ WSGI_APPLICATION = "socialsite.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        'NAME': 'bookstore',
+        'NAME': 'adehaqada',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',

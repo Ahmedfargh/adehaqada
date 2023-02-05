@@ -36,10 +36,11 @@ class settings:
             raise
     def delete_fav(request):
         try:
-            print("fuck")
             if len(personalfavoirte.objects.filter(pk=request.POST.get("personal_fav_id"),personal_name_id=request.session["user_id"])):
                 return JsonResponse({"result":"بنجاح"+request.POST.get("fav_name")+"تم أضافة "})
-            fav=personalfavoirte.objects.delete(pk=request.POST.get("personal_fav_id"),personal_name_id=request.session["user_id"])
-            return JsonResponse({"result":"بنجاح"+request.POST.get("fav_name")+"تم أضافة "})
+            personalfavoirte.objects.filter(favorite_value_id=request.POST.get("personal_fav_id"),personal_name_id=request.session["user_id"]).delete()
+            return JsonResponse({"result":"بنجاح"+request.POST.get("personal_fav_id")+"تم أضافة "})
         except:
             raise
+    def add_work_and_education(request):
+        return None

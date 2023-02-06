@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from social.models import user
 from django.shortcuts import render
-from .models import personalfavoirte,favorite
+from .models import personalfavoirte,favorite,work_education
 from django.http import HttpResponse
 from django.http import JsonResponse
 # Create your views here.
@@ -43,4 +43,19 @@ class settings:
         except:
             raise
     def add_work_and_education(request):
+        try:
+            work=request.POST.get("job")
+            worker=request.session["user_id"]
+            start_date=request.POST.get("start_date")
+            end_date=request.POST.get("end_date")
+            work_obj=work_education()
+            work_obj.work_name=work
+            work_obj.from_date=start_date
+            work_obj.to_date=end_date
+            work_obj.worker=worker
+            work_obj.save()
+            return JsonResponse({"result":"تمت العملية بنجاح"})
+
+        except:
+            raise
         return None

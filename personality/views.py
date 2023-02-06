@@ -55,7 +55,6 @@ class settings:
             work_obj.worker=worker
             work_obj.save()
             return JsonResponse({"result":"تمت العملية بنجاح"})
-
         except:
             raise
         return None

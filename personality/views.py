@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .models import personalfavoirte,favorite,work_education
 from django.http import HttpResponse
 from django.http import JsonResponse
+from social.views import login
 # Create your views here.
 class settings:
     def get_all_interests(user_id):
@@ -42,17 +43,23 @@ class settings:
             return JsonResponse({"result":"بنجاح"+request.POST.get("personal_fav_id")+"تم أضافة "})
         except:
             raise
+    def get_To_work_and_education(request):
+        user_id=request.session["user_id"]
+        user_data=user.objects.filter(id=user_id)
+        return render(request,"edit-work-eductation.html",{"countries":login.get_countries(),"user_data":user_data.get()})
     def add_work_and_education(request):
         try:
             work=request.POST.get("job")
             worker=request.session["user_id"]
             start_date=request.POST.get("start_date")
             end_date=request.POST.get("end_date")
+            country=request.POST.get("country")
             work_obj=work_education()
             work_obj.work_name=work
             work_obj.from_date=start_date
             work_obj.to_date=end_date
             work_obj.worker=worker
+            work_obj.city=country
             work_obj.save()
             return JsonResponse({"result":"تمت العملية بنجاح"})
         except:

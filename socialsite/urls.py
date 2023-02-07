@@ -27,7 +27,9 @@ urlpatterns = [
     path("social/user/account",soc_views.login.login_op,name="account"),
     path("social/user/interest",person_view.settings.get_to_basic_info,name='interests'),
     path("ajax/ad/fav",person_view.settings.add_fav,name='add_fav'),
-    path("ajax/del/fav",person_view.settings.delete_fav,name='del_fav')
+    path("ajax/del/fav",person_view.settings.delete_fav,name='del_fav'),
+    path("ajax/add/work",person_view.settings.add_work_and_education,name='add_work'),
+    path("social/person/add/work",person_view.settings.get_To_work_and_education,name='work_education')
     ]
 urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_URL)
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

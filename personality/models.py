@@ -15,3 +15,4 @@ class work_education(models.Model):
     worker=models.ForeignKey(user,on_delete=models.CASCADE)
     from_date=models.DateField(null=True)
     to_date=models.DateField(default=datetime.now())
+    city=models.CharField(max_length=35,null=True)

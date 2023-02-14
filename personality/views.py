@@ -58,10 +58,9 @@ class settings:
             work_obj.work_name=work
             work_obj.from_date=start_date
             work_obj.to_date=end_date
-            work_obj.worker=worker
+            work_obj.worker=user.objects.filter(pk=worker).get()
             work_obj.city=country
             work_obj.save()
             return JsonResponse({"result":"تمت العملية بنجاح"})
         except:
             raise
-        return None

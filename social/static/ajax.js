@@ -38,7 +38,7 @@ function add_work(){
 
 }
 $(document).ready(function(){
-    $("#update_work").onclick(function(){
+    $("#update_work").on("click",function(){
         let work=$("#new_work").val();
         let from=$("#from").val();
         let to_date=$("#to_date").val();
